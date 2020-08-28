@@ -11,6 +11,7 @@ function getReceipt() {
             text1 = text1+selectedSize+"<br>";
         }
     }
+    // this is where size is selected and a price is applied to eackh size
     if (selectedSize === "Personal Pizza") {
         sizeTotal = 6;
     } else if (selectedSize ==="Small Pizza") {
@@ -29,7 +30,7 @@ function getReceipt() {
     // these variables will get passed on to each function
     getTopping (runningTotal,text1); 
 };
-
+// this is where topping count of how many toppings are chosen
 function getTopping(runningTotal, text1) {
     var toppingTotal = 0;
     var selectedTopping = [];
@@ -41,12 +42,14 @@ function getTopping(runningTotal, text1) {
             text1 = text1+toppingArray[j].value+"<br>";
         }
     }
+    // toppings unless none are selected
     var toppingCount = selectedTopping.length;
     if (toppingCount > 1) {
         toppingTotal = (toppingCount - 1);
     } else {
         toppingTotal = 0;
     }
+    // adds total cart for pizza size, how many toppings, minus one free topping and displays total 
     runningTotal = (runningTotal + toppingTotal);
     console.log("total selected topping items: "+toppingCount);
     console.log(toppingCount+" topping - 1 free topping = "+"$"+toppingTotal+".00");
